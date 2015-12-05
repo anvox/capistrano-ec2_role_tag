@@ -8,7 +8,7 @@ module Capistrano
       def configure
         yield self
         self.stage = 'staging' if self.stage.nil?
-        self.provider = Capistrano::Ec2RoleTag::AwsEC2RoleLoader.new(stage: self.stage)
+        self.provider = Capistrano::Ec2RoleTag::AwsEc2RoleLoader.new(stage: self.stage)
       end
     end
     def ec2_by_role(role)
