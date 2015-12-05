@@ -1,4 +1,5 @@
 require 'capistrano/ec2_role_tag/version'
+require 'capistrano/ec2_role_tag/aws_ec2_role_loader'
 
 module Capistrano
   module Ec2RoleTag
