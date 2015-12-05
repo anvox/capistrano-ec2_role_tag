@@ -5,9 +5,9 @@ module Capistrano
     class AwsEc2Loader
       def initialize(options = {})
         if options[:region].nil?
-          @ec2 = Aws::EC2::Client.new(region: 'us-west-2')
+          @ec2 = AWS::EC2::Client.new(region: 'us-west-2')
         else
-          @ec2 = Aws::EC2::Client.new(region: options[:region])
+          @ec2 = AWS::EC2::Client.new(region: options[:region])
         end
       end
       def fetch(options = {})
