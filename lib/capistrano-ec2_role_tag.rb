@@ -15,7 +15,7 @@ module Capistrano
       Capistrano::Ec2RoleTag.provider.fetch(role)
     end
   end
-  module Configuration
+  class Configuration
     def ec2_by_role(role)
       Capistrano::Ec2RoleTag.provider.fetch(role)
     end
