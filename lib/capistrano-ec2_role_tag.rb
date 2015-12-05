@@ -1,21 +1,19 @@
-require 'capistrano/configuration/ec2_role_tag/version'
+require 'capistrano/ec2_role_tag/version'
 
 module Capistrano
-  module Configuration
-    module Ec2RoleTag
-      class << self
-        attr_accessor :provider, :stage
-        def configure
-          yield self
-          self.stage = 'staging' if self.stage.nil?
-          self.provider = AwsEC2RoleLoader.new(stage: self.stage)
-        end
+  module Ec2RoleTag
+    class << self
+      attr_accessor :provider, :stage
+      def configure
+        yield self
+        self.stage = 'staging' if self.stage.nil?
+        self.provider = AwsEC2RoleLoader.new(stage: self.stage)
       end
-      def ec2_by_role(role)
-        Capistrano::Ec2RoleTag.provider.fetch(role)
-      end
+    end
+    def ec2_by_role(role)
+      Capistrano::Ec2RoleTag.provider.fetch(role)
     end
   end
 end
 
-extend Capistrano::Configuration::Ec2RoleTag
+extend Capistrano::Ec2RoleTag
