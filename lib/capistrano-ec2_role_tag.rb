@@ -11,12 +11,12 @@ module Capistrano
         self.provider = Capistrano::Ec2RoleTag::AwsEc2RoleLoader.new(stage: self.stage)
       end
     end
-    def ec2_by_role(role)
-      Capistrano::Ec2RoleTag.provider.fetch(role)
-    end
   end
   class Configuration
     def ec2_by_role(role)
+      if Capistrano::Ec2RoleTag.provider.nil?
+        Capistrano::Ec2RoleTag.configure {|config| config.stage = fetch(:stage) }
+      end
       Capistrano::Ec2RoleTag.provider.fetch(role)
     end
   end
