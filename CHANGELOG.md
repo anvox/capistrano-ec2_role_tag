@@ -1,7 +1,10 @@
-## [In git](https://github.com/heosuax/capistrano-ec2_role_tag/compare/v0.0.1...HEAD)
+## [In git](https://github.com/heosuax/capistrano-ec2_role_tag/compare/v0.0.2...HEAD)
+
+## [v0.0.2](https://github.com/heosuax/capistrano-ec2_role_tag/tree/v0.0.2)
 
 ### New Features
-* Inject to capistrano
+* Using capistrano stage
+* Update document
 
 ## [v0.0.1](https://github.com/TODO: Write your github username/capistrano-ec2_role_tag/tree/v0.0.1)
 
