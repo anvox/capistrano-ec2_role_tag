@@ -4,19 +4,19 @@ require 'capistrano/ec2_role_tag/aws_ec2_role_loader'
 module Capistrano
   module Ec2RoleTag
     class << self
-      attr_accessor :provider, :stage
+      attr_accessor :provider #, :stage
       def configure
-        yield self
-        #self.stage = 'test' #if self.stage.nil?
+        # yield self
+        # self.stage = 'test' #if self.stage.nil?
         puts "========================= Run on stage #{stage}"
-        self.provider = Capistrano::Ec2RoleTag::AwsEc2RoleLoader.new(stage: self.stage)
+        self.provider = Capistrano::Ec2RoleTag::AwsEc2RoleLoader.new(stage: stage)
       end
     end
   end
   class Configuration
     def ec2_by_role(role)
       if Capistrano::Ec2RoleTag.provider.nil?
-        Capistrano::Ec2RoleTag.configure {|config| config.stage = fetch(:stage) }
+        Capistrano::Ec2RoleTag.configure
       end
       Capistrano::Ec2RoleTag.provider.fetch(role)
     end
