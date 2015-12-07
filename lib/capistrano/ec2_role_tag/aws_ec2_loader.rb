@@ -13,8 +13,8 @@ module Capistrano
       def fetch(options = {})
         apps = @ec2.describe_instances(
           {filters: [
-            {name: "tag:Stage", values: [options[:stage]]},
-            {name: "tag:Role", values: [options[:role]]},
+            {name: "tag:Stage", values: [options[:stage].to_s]},
+            {name: "tag:Role", values: [options[:role].to_s]},
             {name: "instance-state-name", values: ["running"]}
           ]})
         return [] if apps.reservations.empty?
