@@ -11,8 +11,8 @@
 Extend capistrano in AWS EC2 by getting private dns name of servers by stage, role
 
 ```ruby
-allhost = ec2_by_role("appworker")
-allhost = ec2_by_role("backgroundworker")
+app_hosts = ec2_by_role("appworker")
+worker_hosts = ec2_by_role("backgroundworker")
 ```
 
 ## Installation
@@ -25,7 +25,14 @@ Just `require 'capistrano-ec2_role_tag'` in `Capfile` and then use it as:
 
 ### As a fancy tool
 
-TODO
+In `config/deploy/staging.rb` or `config/deploy/production.rb`
+```ruby
+app_hosts = ec2_by_role("appworker")
+worker_hosts = ec2_by_role("backgroundworker")
+
+role :web, *allhost
+...
+```
 
 ## Contributing
 

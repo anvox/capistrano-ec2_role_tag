@@ -1,4 +1,4 @@
-require 'aws-sdk'
+require 'aws-sdk-v1'
 
 module Capistrano
   module Ec2RoleTag
@@ -15,7 +15,7 @@ module Capistrano
           {filters: [
             {name: "tag:Stage", values: [options[:stage]]},
             {name: "tag:Role", values: [options[:role]]},
-            {name: "state", values: ["running"]}
+            {name: "instance-state-name", values: ["running"]}
           ]})
         return [] if apps.reservations.empty?
         return [] if apps.reservations[0].instances.empty?
