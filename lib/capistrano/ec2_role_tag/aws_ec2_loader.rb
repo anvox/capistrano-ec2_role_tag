@@ -17,9 +17,9 @@ module Capistrano
             {name: "tag:Role", values: [options[:role].to_s]},
             {name: "instance-state-name", values: ["running"]}
           ]})
-        return [] if apps.reservations.empty?
-        return [] if apps.reservations[0].instances.empty?
-        return apps.reservations[0].instances.map{|instance| instance.private_dns_name }
+        return [] if apps.reservation_set.empty?
+        return [] if apps.reservations[0].instances_set.empty?
+        return apps.reservation_set[0].instances_set.map{|instance| instance.private_dns_name }
       end
     end
   end
