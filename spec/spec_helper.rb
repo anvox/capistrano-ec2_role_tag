@@ -10,7 +10,7 @@ unless %w(jruby rbx).include? RUBY_ENGINE
 end
 
 # Internal
-require 'capistrano/ec2_role_tag'
+require 'capistrano-ec2_role_tag'
 
 # Require this file using `require "spec_helper"` within each of your specs
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
