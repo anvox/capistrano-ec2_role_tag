@@ -7,7 +7,7 @@ module Capistrano
       attr_accessor :provider, :stage
       def configure
         yield self
-        self.stage = 'test' #if self.stage.nil?
+        #self.stage = 'test' #if self.stage.nil?
         puts "========================= Run on stage #{stage}"
         self.provider = Capistrano::Ec2RoleTag::AwsEc2RoleLoader.new(stage: self.stage)
       end
