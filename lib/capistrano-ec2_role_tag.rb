@@ -7,8 +7,7 @@ module Capistrano
       attr_accessor :provider, :stage
       def configure
         yield self
-        #self.stage = 'test' #if self.stage.nil?
-        puts "========================= Run on stage #{self.stage}"
+        self.stage = 'staging' if self.stage.nil?
         self.provider = Capistrano::Ec2RoleTag::AwsEc2RoleLoader.new(stage: self.stage)
       end
     end
@@ -16,10 +15,7 @@ module Capistrano
   class Configuration
     def ec2_by_role(role)
       if Capistrano::Ec2RoleTag.provider.nil?
-        Capistrano::Ec2RoleTag.configure do |configure|
-          configure.stage = fetch(:stage)
-          puts "------------------------------ Configured"
-        end
+        Capistrano::Ec2RoleTag.configure { |configure| configure.stage = fetch(:stage) }
       end
       Capistrano::Ec2RoleTag.provider.fetch(role)
     end
