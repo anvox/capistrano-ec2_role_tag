@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.summary       = "Plugin to load server by AWS EC2 role"
   spec.description   = spec.summary
 
-  spec.required_ruby_version     = '>= 1.9.3'
+  spec.required_ruby_version     = '>= 2'
   spec.required_rubygems_version = '>= 1.8.0'
 
   spec.license       = 'MIT'
@@ -29,6 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 2.14', '>= 2.14.1'
   spec.add_development_dependency 'rubygems-tasks', '~> 0.2', '>= 0.2.4'
 
-  spec.add_runtime_dependency 'aws-sdk', '~> 1'
-  spec.add_runtime_dependency 'capistrano', '~> 2'
+  spec.add_runtime_dependency 'aws-sdk', '~> 2'
+  spec.add_runtime_dependency 'capistrano', '~> 3'
 end
