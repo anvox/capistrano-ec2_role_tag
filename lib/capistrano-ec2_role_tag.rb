@@ -13,9 +13,9 @@ module Capistrano
     end
   end
   class Configuration
-    def ec2_by_role(role)
+    def self.ec2_by_role(role)
       if Capistrano::Ec2RoleTag.provider.nil?
-        Capistrano::Ec2RoleTag.configure { |configure| configure.stage = fetch(:stage) }
+        Capistrano::Ec2RoleTag.configure { |configure| configure.stage = fetch(:stage); puts "======================#{fetch(:stage)}" }
       end
       Capistrano::Ec2RoleTag.provider.fetch(role)
     end
