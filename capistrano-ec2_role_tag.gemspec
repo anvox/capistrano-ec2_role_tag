@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
 
   spec.add_development_dependency 'bundler', '~> 1.3', '>= 1.3.5'
-  spec.add_development_dependency 'rake', '~> 0'
+  spec.add_development_dependency 'rake', '>= 10.0.0'
   spec.add_development_dependency 'rspec', '~> 2.14', '>= 2.14.1'
   spec.add_development_dependency 'rubygems-tasks', '~> 0.2', '>= 0.2.4'
 
