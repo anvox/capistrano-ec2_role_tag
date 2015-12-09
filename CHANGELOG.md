@@ -1,5 +1,11 @@
 ## [In git](https://github.com/heosuax/capistrano-ec2_role_tag/compare/v0.0.2...HEAD)
 
+## [v0.1.0](https://github.com/heosuax/capistrano-ec2_role_tag/tree/v0.1.0)
+
+### New Features
+* Support capistrano 3
+* Using aws-sdk v2
+
 ## [v0.0.2](https://github.com/heosuax/capistrano-ec2_role_tag/tree/v0.0.2)
 
 ### New Features

@@ -1,13 +1,13 @@
-require 'aws-sdk-v1'
+require 'aws-sdk'
 
 module Capistrano
   module Ec2RoleTag
     class AwsEc2Loader
       def initialize(options = {})
         if options[:region].nil?
-          @ec2 = AWS::EC2::Client.new(region: 'us-west-2')
+          @ec2 = Aws::EC2::Client.new(region: 'us-west-2')
         else
-          @ec2 = AWS::EC2::Client.new(region: options[:region])
+          @ec2 = Aws::EC2::Client.new(region: options[:region])
         end
       end
       def fetch(options = {})
@@ -15,11 +15,11 @@ module Capistrano
           {filters: [
             {name: "tag:Stage", values: [options[:stage].to_s]},
             {name: "tag:Role", values: [options[:role].to_s]},
-            {name: "instance-state-name", values: ["running"]}
+            {name: "state", values: ["running"]}
           ]})
-        return [] if apps.reservation_set.empty?
-        return [] if apps.reservation_set[0].instances_set.empty?
-        return apps.reservation_set[0].instances_set.map{|instance| instance.private_dns_name }
+        return [] if apps.reservations.empty?
+        return [] if apps.reservations[0].instances.empty?
+        return apps.reservations[0].instances.map{|instance| instance.private_dns_name }
       end
     end
   end
