@@ -11,8 +11,8 @@
 Extend capistrano in AWS EC2 by getting private dns name of servers by stage, role
 
 ```ruby
-app_hosts = ec2_by_role("appworker")
-worker_hosts = ec2_by_role("backgroundworker")
+app_hosts = Capistrano::Configuration.ec2_by_role("appworker")
+worker_hosts = Capistrano::Configuration.ec2_by_role("backgroundworker")
 ```
 
 ## Installation
@@ -33,6 +33,10 @@ worker_hosts = ec2_by_role("backgroundworker")
 role :web, *allhost
 ...
 ```
+
+## TODO
+
+* Support authentication by API key
 
 ## Contributing
 
