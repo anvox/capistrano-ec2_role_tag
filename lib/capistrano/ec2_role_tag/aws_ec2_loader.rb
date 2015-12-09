@@ -15,7 +15,7 @@ module Capistrano
           {filters: [
             {name: "tag:Stage", values: [options[:stage].to_s]},
             {name: "tag:Role", values: [options[:role].to_s]},
-            {name: "state", values: ["running"]}
+            {name: "instance-state-name", values: ["running"]}
           ]})
         return [] if apps.reservations.empty?
         return [] if apps.reservations[0].instances.empty?
