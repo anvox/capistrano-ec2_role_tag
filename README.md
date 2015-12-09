@@ -27,8 +27,8 @@ Just `require 'capistrano-ec2_role_tag'` in `Capfile` and then use it as:
 
 In `config/deploy/staging.rb` or `config/deploy/production.rb`
 ```ruby
-app_hosts = ec2_by_role("appworker")
-worker_hosts = ec2_by_role("backgroundworker")
+app_hosts = Capistrano::Configuration.ec2_by_role("appworker")
+worker_hosts = Capistrano::Configuration.ec2_by_role("backgroundworker")
 
 role :web, *allhost
 ...
