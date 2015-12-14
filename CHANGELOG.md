@@ -1,6 +1,6 @@
 ## [In git](https://github.com/heosuax/capistrano-ec2_role_tag/compare/v0.0.2...HEAD)
 
-## [v0.1.0](https://github.com/heosuax/capistrano-ec2_role_tag/tree/v0.1.4)
+## [v0.1.4](https://github.com/heosuax/capistrano-ec2_role_tag/tree/v0.1.4)
 
 * Fix bug get all reservations
 * Fix aws key query
