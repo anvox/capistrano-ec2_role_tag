@@ -18,8 +18,14 @@ module Capistrano
             {name: "instance-state-name", values: ["running"]}
           ]})
         return [] if apps.reservation_set.empty?
-        return [] if apps.reservation_set[0].instances_set.empty?
-        return apps.reservation_set[0].instances_set.map{|instance| instance.private_dns_name }
+
+        result = []
+        apps.reservation_set.each do |reservation|
+          next if reservation.instances_set.empty?
+          result += reservation.instances_set.map {|instance| instance.private_dns_name }
+        end
+
+        return result
       end
     end
   end
